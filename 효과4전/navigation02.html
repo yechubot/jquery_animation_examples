@@ -7,16 +7,16 @@
 <script src="http://code.jquery.com/jquery-1.7.min.js"></script>
 <script>
 	$(document).ready(function() {
-		// 처음에false로 주고 if(clicked = false)식으로 할 수도 있다
+
 		var clicked = true;
 		$('#home').css('cursor','pointer').click(function(){
 			if(clicked){
-			$('#menu').animate({
+			$('#menu').stop().animate({
 				left:50
 			},1000);
 			clicked = false;
 		} else {
-			$('#menu').animate({
+			$('#menu').stop().animate({
 				left:-600
 			},1000);
 			clicked = true;
@@ -26,13 +26,10 @@
 		$('#menu>li').hover(function(){
 			$(this).animate({
 					opacity:1,
-					
-				})
-				
+				})	
 		},function(){
 			$(this).animate({
 				opacity:0.2,
-				
 			})
 		}).css('cursor','pointer');
 	})
